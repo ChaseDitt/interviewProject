@@ -1,27 +1,37 @@
 <!-- app/views/pages/show_card.html.erb -->
-<div class="card-show-container" style="background-color: <%= @trading_card.color %>;">
-  <h1><%= @trading_card.name %></h1>
-  <div>
-    <%= image_tag @trading_card.front_image %>
-  </div>
-  <div>
-    <h2><%= @trading_card.move1_name %></h2>
-    <p><%= @trading_card.move1_description %></p>
-  </div>
-  <div>
-    <h2><%= @trading_card.move2_name %></h2>
-    <p><%= @trading_card.move2_description %></p>
-  </div>
-  <div>
-    <h3>Back Image:</h3>
-    <%= image_tag @trading_card.back_image %>
-  </div>
-</div>
-<div>
-  <h3>All Cards Created by <%= @trading_card.user.username %>:</h3>
-  <ul>
-    <% @trading_card.user.trading_cards.each do |card| %>
-      <li><%= link_to card.name, trading_card_path(card) %></li>
+
+<div class="recent-cards">
+  <h2>Your Recent Cards</h2>
+  <div class="cards-container">
+    <% @recent_cards.each do |card| %>
+      <div class="card">
+        <div class="card-front" data-card-id="<%= card.id %>">
+          <h2><%= card.name %></h2>
+          <%= image_tag card.front_image, class: 'card-image' %>
+          <div class="move">
+            <h3><%= card.move1_name %></h3>
+            <p><%= card.move1_description %></p>
+          </div>
+          <div class="move">
+            <h3><%= card.move2_name %></h3>
+            <p><%= card.move2_description %></p>
+          </div>
+          <button class="switch-view" data-card-id="<%= card.id %>">Show Back</button>
+        </div>
+        <div class="card-back" data-card-id="<%= card.id %>" style="display: none;">
+          <%= image_tag card.back_image, class: 'card-image' %>
+          <button class="switch-view" data-card-id="<%= card.id %>">Show Front</button>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
+
+  <div class="pagination">
+    <% if params[:page].to_i > 0 %>
+      <%= link_to 'Previous', trading_card_path(@trading_card, page: params[:page].to_i - 1) %>
+    <% end %>
+    <% if @recent_cards.size == 10 %>
+      <%= link_to 'Next', trading_card_path(@trading_card, page: params[:page].to_i + 1) %>
+    <% end %>
+  </div>
 </div>

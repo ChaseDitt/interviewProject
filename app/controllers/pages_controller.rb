@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:home, :card_create, :create_card, :show_card]
-  
+
   def login
     if user_signed_in?
       redirect_to home_path
@@ -39,7 +39,7 @@ class PagesController < ApplicationController
   end
 
   def show_card
-    @trading_card = TradingCard.find(params[:id])
+    @recent_cards = current_user.trading_cards.order(created_at: :desc).limit(10).offset(params[:page].to_i * 10)
   end
 
   helper_method :resource, :resource_name
