@@ -5,7 +5,7 @@
   </div>
   <div class="login-card">
     <h1>Sign In</h1>
-    <%= form_for(@resource, as: @resource_name, url: session_path(@resource_name)) do |f| %>
+    <%= form_for(User.new, as: :user, url: user_session_path) do |f| %>
       <div>
         <%= f.label :username %><br />
         <%= f.text_field :username, autofocus: true %>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # Devise routes for User authentication
   devise_for :users, controllers: {
+    sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
 
