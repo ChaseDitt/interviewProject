@@ -1,0 +1,11 @@
+<!-- app/views/layouts/_header.html.erb -->
+<header class="header">
+  <div class="header-left">
+    <%= link_to image_tag('TCC.png', alt: 'Logo'), home_path %>
+  </div>
+  <nav class="header-right">
+    <%= link_to 'Create', card_create_path %>
+    <%= link_to 'My Cards', current_user.trading_cards.any? ? trading_card_path(current_user.trading_cards.first) : '#', class: current_user.trading_cards.any? ? '' : 'disabled' %>
+    <%= link_to 'Log Out', sign_out_path, method: :delete %>
+  </nav>
+</header>

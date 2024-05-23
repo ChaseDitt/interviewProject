@@ -1,0 +1,37 @@
+<!-- app/views/pages/show_card.html.erb -->
+
+<div class="recent-cards">
+  <h2>Your Recent Cards</h2>
+  <div class="cards-container">
+    <% @recent_cards.each do |card| %>
+      <div class="card" style="background-color: <%= card.color %>;">
+        <div class="card-front" data-card-id="<%= card.id %>">
+          <h2><%= card.name %></h2>
+          <%= image_tag card.front_image, class: 'card-image' %>
+          <div class="move">
+            <h3><%= card.move1_name %></h3>
+            <p><%= card.move1_description %></p>
+          </div>
+          <div class="move">
+            <h3><%= card.move2_name %></h3>
+            <p><%= card.move2_description %></p>
+          </div>
+          <button class="switch-view" data-card-id="<%= card.id %>">Show Back</button>
+        </div>
+        <div class="card-back" data-card-id="<%= card.id %>" style="display: none; background-color: <%= card.color %>;">
+          <%= image_tag card.back_image, class: 'card-image' %>
+          <button class="switch-view" data-card-id="<%= card.id %>">Show Front</button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pagination">
+    <% if params[:page].to_i > 0 %>
+      <%= link_to 'Previous', trading_card_path(@trading_card, page: params[:page].to_i - 1) %>
+    <% end %>
+    <% if @recent_cards.size == 10 %>
+      <%= link_to 'Next', trading_card_path(@trading_card, page: params[:page].to_i + 1) %>
+    <% end %>
+  </div>
+</div>

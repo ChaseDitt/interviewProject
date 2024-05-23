@@ -86,3 +86,116 @@ body {
     width: 150px;
     height: auto;
 }
+
+
+/* Card CSS */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(20% - 20px);
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-front, .card-back {
+    padding: 20px;
+}
+
+.card h2 {
+    font-size: 1.5em;
+    font-family: 'Inter', sans-serif;
+    color: #32012F; /* Purple */
+    margin-bottom: 10px;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.move {
+    margin-top: 10px;
+}
+
+.move h3 {
+    font-size: 1.2em;
+    font-family: 'Inter', sans-serif;
+    color: #F97300; /* Orange */
+    margin-bottom: 5px;
+}
+
+.move p {
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    color: #524c42; /* Dark Gray */
+}
+
+.switch-view {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #32012F; /* Purple */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.switch-view:hover {
+    background-color: #F97300; /* Orange */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: #32012F; /* Purple */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background-color: #F97300; /* Orange */
+}
+
+/* Header CSS */
+.header {
+    background-color: #E2DFD0; /* LightGray */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 5px solid #524c42; /* Dark Gray */
+}
+
+.header-left img {
+    height: 30px;
+}
+
+.header-right a {
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #524c42; /* Dark Gray */
+}
+
+.header-right a:hover {
+    color: #F97300; /* Orange */
+}
