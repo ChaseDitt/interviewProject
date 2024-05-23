@@ -3,9 +3,15 @@ Rails.application.routes.draw do
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-  
+
   # Devise routes for User authentication
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
+  devise_scope :user do
+    get 'sign_out', to: 'devise/sessions#destroy'
+  end
 
   # Routes for Logging in (also set root to the login itself)
   root to: 'pages#login'
