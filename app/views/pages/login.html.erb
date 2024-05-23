@@ -1,16 +1,23 @@
 <!-- app/views/pages/login.html.erb -->
-<h1>Login</h1>
-<%= link_to "Sign Up", sign_up_path %>
-<%= form_for(@resource, as: @resource_name, url: session_path(@resource_name)) do |f| %>
-  <div>
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="login-container">
+  <div class="logo">
+    <%= image_tag 'logo.png' %>
   </div>
-  <div>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+  <div class="login-card">
+    <h1>Sign In</h1>
+    <%= form_for(@resource, as: @resource_name, url: session_path(@resource_name)) do |f| %>
+      <div>
+        <%= f.label :username %><br />
+        <%= f.text_field :username, autofocus: true %>
+      </div>
+      <div>
+        <%= f.label :password %><br />
+        <%= f.password_field :password %>
+      </div>
+      <div>
+        <%= f.submit "Sign In" %>
+      </div>
+    <% end %>
+    <%= link_to 'New? Create Account', sign_up_path, class: 'signup-link' %>
   </div>
-  <div>
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+</div>
