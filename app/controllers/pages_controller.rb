@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, only: [:home, :card_create, :create_card, :show_card]
+  
   def login
     if user_signed_in?
       redirect_to home_path
@@ -28,11 +30,11 @@ class PagesController < ApplicationController
   end
 
   def create_card
-    @trading_card = TradingCard.new(trading_card_params)
+    @trading_card = current_user.trading_cards.build(trading_card_params)
     if @trading_card.save
-      redirect_to @trading_card, notice: 'Trading card was successfully created.'
+      redirect_to trading_card_path(@trading_card), notice: 'Trading card was successfully created.'
     else
-      render 'card_create'
+      render :card_create
     end
   end
 

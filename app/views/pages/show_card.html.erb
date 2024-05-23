@@ -1,8 +1,8 @@
 <!-- app/views/pages/show_card.html.erb -->
-<div class="card-show-container">
+<div class="card-show-container" style="background-color: <%= @trading_card.color %>;">
   <h1><%= @trading_card.name %></h1>
   <div>
-    <img src="<%= @trading_card.front_image %>" alt="<%= @trading_card.name %> front image">
+    <%= image_tag @trading_card.front_image %>
   </div>
   <div>
     <h2><%= @trading_card.move1_name %></h2>
@@ -12,4 +12,16 @@
     <h2><%= @trading_card.move2_name %></h2>
     <p><%= @trading_card.move2_description %></p>
   </div>
+  <div>
+    <h3>Back Image:</h3>
+    <%= image_tag @trading_card.back_image %>
+  </div>
+</div>
+<div>
+  <h3>All Cards Created by <%= @trading_card.user.username %>:</h3>
+  <ul>
+    <% @trading_card.user.trading_cards.each do |card| %>
+      <li><%= link_to card.name, trading_card_path(card) %></li>
+    <% end %>
+  </ul>
 </div>
