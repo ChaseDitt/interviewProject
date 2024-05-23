@@ -24,7 +24,7 @@ class PagesController < ApplicationController
   end
 
   def home
-    render 'home'
+    @recent_cards = TradingCard.includes(:user).order(created_at: :desc).limit(10)
   end
 
   def card_create
