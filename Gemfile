@@ -68,3 +68,11 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# Gems for RSpec Tests
+group :development, :test do
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 5.0'
+  gem 'simplecov', require: false
+  gem 'rails-controller-testing'
+end
