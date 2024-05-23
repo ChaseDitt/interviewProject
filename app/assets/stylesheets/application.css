@@ -34,6 +34,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 400px;
+    font-family: 'Inter', sans-serif;
 }
 
 .login-card h1 {
@@ -64,6 +65,7 @@ body {
     cursor: pointer;
     padding: 0.75rem;
     border-radius: 5px;
+    font-family: 'Inter', sans-serif;
 }
 
 .login-card input[type="submit"]:hover {
