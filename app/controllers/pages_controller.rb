@@ -23,6 +23,10 @@ class PagesController < ApplicationController
     render 'home'
   end
 
+  def card_create
+    render 'card_create'
+  end
+
   helper_method :resource, :resource_name
 
   private

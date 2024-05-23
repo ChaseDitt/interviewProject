@@ -5,10 +5,7 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
 
   # Devise routes for User authentication
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
-  }
+  devise_for :users
 
   devise_scope :user do
     get 'sign_out', to: 'devise/sessions#destroy'
@@ -19,6 +16,7 @@ Rails.application.routes.draw do
   get 'login', to: 'pages#login'
   get 'sign_up', to: 'pages#create'
   get 'home', to: 'pages#home'
+  get 'card_create', to: 'pages#card_create', as: 'card_create'
 
   get "up" => "rails/health#show", as: :rails_health_check
 
