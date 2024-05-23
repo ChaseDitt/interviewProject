@@ -13,3 +13,76 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    background-color: #E2DFD0; /* LightGray */
+    font-family: 'Inter', sans-serif;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login-card {
+    background-color: #f6f3e0; /* Lighter background color */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+    font-family: 'Inter', sans-serif;
+}
+
+.login-card h1 {
+    color: #32012F; /* Purple */
+    margin-bottom: 1.5rem;
+}
+
+.login-card label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    color: #524c42; /* DarkGray */
+}
+
+.login-card input {
+    color: #524c42; /* DarkGray */
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-card input[type="submit"] {
+    background-color: #32012F; /* Purple */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+.login-card input[type="submit"]:hover {
+    background-color: #F97300; /* Orange */
+}
+
+.login-card .signup-link {
+    color: #F97300; /* Orange */
+    margin-top: 1rem;
+    display: block;
+}
+
+.logo {
+    margin-bottom: 2rem;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}

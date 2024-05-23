@@ -1,0 +1,23 @@
+<!-- app/views/pages/login.html.erb -->
+<div class="login-container">
+  <div class="logo">
+    <%= image_tag 'logo.png' %>
+  </div>
+  <div class="login-card">
+    <h1>Sign In</h1>
+    <%= form_for(User.new, as: :user, url: user_session_path) do |f| %>
+      <div>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+      <div>
+        <%= f.label :password %><br />
+        <%= f.password_field :password %>
+      </div>
+      <div>
+        <%= f.submit "Sign In" %>
+      </div>
+    <% end %>
+    <%= link_to 'New? Create Account', sign_up_path, class: 'signup-link' %>
+  </div>
+</div>
