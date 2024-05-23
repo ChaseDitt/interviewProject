@@ -97,7 +97,6 @@ body {
 }
 
 .card {
-    background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: calc(20% - 20px);
@@ -112,6 +111,7 @@ body {
 
 .card h2 {
     font-size: 1.5em;
+    font-family: 'Inter', sans-serif;
     color: #32012F; /* Purple */
     margin-bottom: 10px;
 }
@@ -120,6 +120,7 @@ body {
     width: 100%;
     height: auto;
     border-radius: 10px;
+    background-color: #FFFFFF;
 }
 
 .move {
@@ -128,12 +129,14 @@ body {
 
 .move h3 {
     font-size: 1.2em;
+    font-family: 'Inter', sans-serif;
     color: #F97300; /* Orange */
     margin-bottom: 5px;
 }
 
 .move p {
     font-size: 1em;
+    font-family: 'Inter', sans-serif;
     color: #524c42; /* Dark Gray */
 }
 
@@ -170,4 +173,29 @@ body {
 
 .pagination a:hover {
     background-color: #F97300; /* Orange */
+}
+
+/* Header CSS */
+.header {
+    background-color: #E2DFD0; /* LightGray */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 5px solid #524c42; /* Dark Gray */
+}
+
+.header-left img {
+    height: 30px;
+}
+
+.header-right a {
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #524c42; /* Dark Gray */
+}
+
+.header-right a:hover {
+    color: #F97300; /* Orange */
 }

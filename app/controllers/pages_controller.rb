@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:home, :card_create, :create_card, :show_card]
 
+  layout 'base', only: [:home, :card_create, :show_card]
+
   def login
     if user_signed_in?
       redirect_to home_path
