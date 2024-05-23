@@ -1,5 +1,41 @@
-<!-- app/views/pages/cardCreate.html.erb -->
+<!-- app/views/pages/card_create.html.erb -->
 <div class="card-create-container">
-  <h1>Create a New Card</h1>
-  <!-- Add your form or content here -->
+  <h1>Create a New Trading Card</h1>
+  <%= form_with(model: @trading_card, url: create_card_path, local: true, multipart: true) do |form| %>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :front_image %><br>
+      <%= form.file_field :front_image %>
+    </div>
+    <div>
+      <%= form.label :back_image %><br>
+      <%= form.file_field :back_image %>
+    </div>
+    <div>
+      <%= form.label :move1_name %><br>
+      <%= form.text_field :move1_name %>
+    </div>
+    <div>
+      <%= form.label :move1_description %><br>
+      <%= form.text_area :move1_description %>
+    </div>
+    <div>
+      <%= form.label :move2_name %><br>
+      <%= form.text_field :move2_name %>
+    </div>
+    <div>
+      <%= form.label :move2_description %><br>
+      <%= form.text_area :move2_description %>
+    </div>
+    <div>
+      <%= form.label :color %><br>
+      <%= form.color_field :color %>
+    </div>
+    <div>
+      <%= form.submit 'Create Card' %>
+    </div>
+  <% end %>
 </div>

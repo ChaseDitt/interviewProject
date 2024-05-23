@@ -1,0 +1,15 @@
+<!-- app/views/pages/show_card.html.erb -->
+<div class="card-show-container">
+  <h1><%= @trading_card.name %></h1>
+  <div>
+    <img src="<%= @trading_card.front_image %>" alt="<%= @trading_card.name %> front image">
+  </div>
+  <div>
+    <h2><%= @trading_card.move1_name %></h2>
+    <p><%= @trading_card.move1_description %></p>
+  </div>
+  <div>
+    <h2><%= @trading_card.move2_name %></h2>
+    <p><%= @trading_card.move2_description %></p>
+  </div>
+</div>
