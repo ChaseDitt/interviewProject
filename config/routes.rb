@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get 'card_create', to: 'pages#card_create', as: 'card_create'
   post 'create_card', to: 'pages#create_card', as: 'create_card'
   get 'trading_card/:id', to: 'pages#show_card', as: 'trading_card'
+  get 'edit_card/:id', to: 'pages#edit_card', as: 'edit_card'
+  patch 'update_card/:id', to: 'pages#update_card', as: 'update_card'
+  get 'destroy_card/:id', to: 'pages#destroy_card', as: 'destroy_card'
 
   get "up" => "rails/health#show", as: :rails_health_check
 

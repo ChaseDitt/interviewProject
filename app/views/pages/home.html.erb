@@ -1,4 +1,52 @@
 <!-- app/views/pages/home.html.erb -->
-<h1>Welcome</h1>
-<%= link_to 'Create a New Card', card_create_path, class: 'create-card-link' %>
-<%= link_to "Logout", sign_out_path %>
+<div class="search-container">
+  <input type="text" id="search-bar" placeholder="Search by card name or username...">
+</div>
+<div class="cards-container" id="cards-container">
+  <% @recent_cards.each do |card| %>
+    <div class="card" style="background-color: <%= card.color %>;" data-name="<%= card.name %>" data-username="<%= card.user.username %>">
+      <div class="card-front" data-card-id="<%= card.id %>">
+        <h2><%= card.name %></h2>
+        <%= image_tag card.front_image, class: 'card-image' %>
+        <div class="move">
+          <h3><%= card.move1_name %></h3>
+          <p><%= card.move1_description %></p>
+        </div>
+        <div class="move">
+          <h3><%= card.move2_name %></h3>
+          <p><%= card.move2_description %></p>
+        </div>
+        <button class="switch-view" data-card-id="<%= card.id %>">Show Back</button>
+      </div>
+      <div class="card-back" data-card-id="<%= card.id %>" style="display: none; background-color: <%= card.color %>;">
+        <%= image_tag card.back_image, class: 'card-image' %>
+        <button class="switch-view" data-card-id="<%= card.id %>">Show Front</button>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        console.log("DOM fully loaded and parsed");
+        const searchBar = document.getElementById("search-bar");
+        const cardsContainer = document.getElementById("cards-container");
+        const cards = Array.from(cardsContainer.getElementsByClassName("card"));
+
+        searchBar.addEventListener("input", () => {
+            const query = searchBar.value.toLowerCase();
+            console.log("Search query: ", query);
+            cards.forEach(card => {
+                const name = card.getAttribute("data-name").toLowerCase();
+                const username = card.getAttribute("data-username").toLowerCase();
+                if (name.includes(query) || username.includes(query)) {
+                    card.style.display = "";
+                    console.log("Card shown: ", name, username);
+                } else {
+                    card.style.display = "none";
+                    console.log("Card hidden: ", name, username);
+                }
+            });
+        });
+    });
+</script>
