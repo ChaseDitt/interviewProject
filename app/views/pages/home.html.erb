@@ -33,13 +33,22 @@
         const cardsContainer = document.getElementById("cards-container");
         const cards = Array.from(cardsContainer.getElementsByClassName("card"));
 
+        // Attach an event listener to the search bar to detect input changes
         searchBar.addEventListener("input", () => {
+            // Get the search query and convert it to lowercase
             const query = searchBar.value.toLowerCase();
             console.log("Search query: ", query);
+
+            // Loop through each card and check if it matches the search query
             cards.forEach(card => {
+
+                // Get the card's name and username from the data attributes and convert them to lowercase
                 const name = card.getAttribute("data-name").toLowerCase();
                 const username = card.getAttribute("data-username").toLowerCase();
+
+                // Check if the card's name or username includes the search query
                 if (name.includes(query) || username.includes(query)) {
+                    // If matches display the card
                     card.style.display = "";
                     console.log("Card shown: ", name, username);
                 } else {
