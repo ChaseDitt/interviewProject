@@ -54,9 +54,11 @@ class PagesController < ApplicationController
   end
 
   def destroy_card
+    @trading_card = TradingCard.find(params[:id])
     @trading_card.destroy
-    redirect_to trading_card_path, notice: 'Trading card was successfully deleted.'
+    redirect_to home_path, notice: 'Trading card was successfully deleted.'
   end
+
 
   helper_method :resource, :resource_name
 
