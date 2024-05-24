@@ -1,15 +1,11 @@
-<!-- app/views/pages/card_create.html.erb -->
+<!-- app/views/pages/edit_card.html.erb -->
 <div class="card-create-container">
   <div class="card-create-card">
-    <h1>Create a New Trading Card</h1>
-    <%= form_with(model: @trading_card, url: create_card_path, local: true, multipart: true) do |form| %>
+    <h1>Edit Trading Card</h1>
+    <%= form_with(model: @trading_card, url: update_card_path(@trading_card), local: true, multipart: true) do |form| %>
       <div class="form-group">
         <%= form.label :name %>
         <%= form.text_field :name %>
-      </div>
-      <div class="form-group">
-        <%= form.label :color %>
-        <%= form.color_field :color %>
       </div>
       <div class="form-group">
         <%= form.label :front_image %>
@@ -35,8 +31,12 @@
         <%= form.label :move2_description %>
         <%= form.text_area :move2_description %>
       </div>
+      <div class="form-group">
+        <%= form.label :color %>
+        <%= form.color_field :color %>
+      </div>
       <div class="form-group" style="flex: 1 1 100%;">
-        <%= form.submit 'Create Card' %>
+        <%= form.submit 'Update Card' %>
       </div>
     <% end %>
   </div>
