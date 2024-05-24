@@ -75,4 +75,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0'
   gem 'simplecov', require: false
   gem 'rails-controller-testing'
+  gem 'faker'
+  gem 'database_cleaner-active_record'
 end
